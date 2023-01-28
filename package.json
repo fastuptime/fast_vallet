@@ -1,0 +1,20 @@
+{
+  "name": "fast-vallet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Can & FastUptime",
+  "license": "ISC",
+  "repository": "fastuptime/fast_vallet",
+  "dependencies": {
+    "axios": "^1.2.6",
+    "buffer": "^6.0.3",
+    "crypto": "^1.0.1",
+    "form-data": "^4.0.0"
+  }
+}
