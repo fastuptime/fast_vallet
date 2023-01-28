@@ -1,7 +1,7 @@
 # Fast Vallet
 ---
 
-https://i.hizliresim.com/1ors7a6.jpg
+![image](https://user-images.githubusercontent.com/63351166/215289526-4aedba3b-86ed-480a-8d5d-d328e7520ebf.png)
 
 # Örnek Kullanımı
 
