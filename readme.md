@@ -144,7 +144,7 @@ app.listen(80, () => {
 
 # 📨 CallBack Vallet 📨
 
-```json
+```js
 {
   status: 'success',
   paymentStatus: 'paymentOk',
