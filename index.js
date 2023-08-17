@@ -31,7 +31,7 @@ function createPaymentLink(data, callback) {
     const userName = data.userName;
     const password = data.password;
     const shopCode = data.shopCode;
-    const string = data.orderPrice + data.currency + data.orderPrice + data.productsTotalPrice + data.productType + data.callbackOkUrl + data.callbackFailUrl;
+    const string = data.orderId + data.currency + data.orderPrice + data.productsTotalPrice + data.productType + data.callbackOkUrl + data.callbackFailUrl;
     const hash = data.hash;
 
     const sha1Hash = crypto.createHash('sha1').update(userName + password + shopCode + string + hash).digest('hex');
