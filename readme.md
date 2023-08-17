@@ -8,7 +8,7 @@
 
 # 🌱 Example Create Link Vallet 🌱
 
-```
+```js
 const vallet = require('fast-vallet');
 
 const data = {
@@ -48,7 +48,7 @@ vallet.createPaymentLink(data, (err, res) => {
 
 # 🎏 Example Express Fast-Vallet 🎏
 
-````js
+```js
 const express = require('express');
 const app = express();
 const vallet = require('fast-vallet');
@@ -118,6 +118,7 @@ app.get('/callback', async (req, res) => {
 app.listen(80, () => {
     console.log('Server Started');
 });
+
 ```
 
 
