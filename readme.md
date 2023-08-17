@@ -142,6 +142,31 @@ app.listen(80, () => {
 }
 ```
 
+# 📨 CallBack Vallet 📨
+
+```json
+{
+  status: 'success',
+  paymentStatus: 'paymentOk',
+  hash: 'xxxxxxxx',
+  paymentCurrency: 'TRY',
+  paymentAmount: '10.35',
+  paymentType: 'KART',
+  paymentTime: '2023-08-18 01:57:53.000',
+  conversationId: 'xxxxxx',
+  orderId: 'xxx',
+  shopCode: 'xxx',
+  orderPrice: '10.35',
+  productsTotalPrice: '10.0',
+  valletOrderNumber: 'xxxx',
+  valletOrderId: 'xxxx',
+  productType: 'DIJITAL_URUN',
+  callbackOkUrl: 'https://usavizebot.com/callbackOkUrl',
+  callbackFailUrl: 'https://usavizebot.com/callbackFailUrl',
+  callback_url: 'https://usavizebot.com/dashboard/payment/vallet'
+}
+```
+
 # 🛠️ Installation 🛠️
 
 - `npm i fast-vallet`
