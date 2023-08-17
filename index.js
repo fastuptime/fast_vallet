@@ -25,8 +25,6 @@ function createPaymentLink(data, callback) {
     if(!data.buyerIp) throw new Error('buyerIp is required');
     if(!data.buyerAdress) throw new Error('buyerAdress is required');
     if(!data.BuyerCountry) throw new Error('BuyerCountry is required');
-    if(!data.BuyerCity) throw new Error('BuyerCity is required');
-    if(!data.buyerDistrict) throw new Error('buyerDistrict is required');
     if(!data.callbackOkUrl) throw new Error('callbackOkUrl is required');
     if(!data.callbackFailUrl) throw new Error('callbackFailUrl is required');
 
@@ -45,19 +43,23 @@ function createPaymentLink(data, callback) {
     for (const key in data) {
         formdata.append(key, data[key]);
     }
-    axios({
-        method: 'post',
-        url: 'https://www.vallet.com.tr/api/v1/create-payment-link',
-        data: formdata,
-        headers: {
-            'Content-Type': 'multipart/form-data',
-            'Referer': data.referer,
-        }
-    }).then((response) => {
-        callback(response.data);
-    }).catch((error) => {
-        callback(error);
-    });
+    setTimeout(() => {
+        axios({
+            method: 'post',
+            url: 'https://www.vallet.com.tr/api/v1/create-payment-link',
+            data: formdata,
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                'Referer': data.referer,
+            }
+        }).then((response) => {
+            if(data.status === 'error') return callback({ status: 'error', message: response.data.message });
+            callback({ status: 'success', data: response.data, url: response.data.payment_page_url });
+        }).catch((error) => {
+            callback({ status: 'error', message: error.message });
+        });
+    }, 1000);
+    
 }
 
 module.exports = { createPaymentLink };
