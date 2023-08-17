@@ -4,6 +4,7 @@
 # 🎈 Images 🎈
 
 ![image](https://user-images.githubusercontent.com/63351166/215289526-4aedba3b-86ed-480a-8d5d-d328e7520ebf.png)
+![image](https://github.com/fastuptime/fast_vallet/assets/63351166/e9648ca3-c597-43fb-8d0f-0683a50b24ec)
 
 # 🌱 Example Create Link Vallet 🌱
 
@@ -43,7 +44,84 @@ vallet.createPaymentLink(data, (err, res) => {
 });
 
 ```
-# 🌘 Example Response Vallet 🌘
+
+
+# 🎏 Example Express Fast-Vallet 🎏
+
+````js
+const express = require('express');
+const app = express();
+const vallet = require('fast-vallet');
+
+app.get('/createPaymentLink', (req, res) => {
+    const data = {
+        referer: 'localhost', // Referer Domain example.com
+        hash: 'xxxx', // Api Hash Anahtarı
+        userName: 'xxxx', // Apı User
+        password: 'xxxxxxxxxxx', // Api Key
+        shopCode: 'xxx', // Api Mağaza Kodu
+        productName: 'productName',
+        productData: 'productData',
+        productType: 'DIJITAL_URUN',
+        productsTotalPrice: 21,
+        orderPrice: 20.00,
+        currency: 'TRY',
+        orderId: '20',
+        locale: 'locale',
+        conversationId: 'DIJITAL_URUN',
+        buyerName: 'buyerName',
+        buyerSurName: 'buyerSurName',
+        buyerGsmNo: 'buyerGsmNo',
+        buyerMail: 'buyerEmail@gmail.com',
+        buyerIp: '124.432.423',
+        buyerAdress: 'buyerAdress',
+        BuyerCountry: 'BuyerCountry',
+        BuyerCity: 'BuyerCity',
+        buyerDistrict: 'buyerDistrict',
+        callbackOkUrl: 'http://localhost/callbackOkUrl',
+        callbackFailUrl: 'http://localhost/callbackFailUrl',
+    };
+
+    vallet.createPaymentLink(data, (response) => {
+        //console.log(response);
+        if (response.status === 'error') return res.send(response.message);
+        res.redirect(response.url);
+    });
+});
+
+app.get('/callbackOkUrl', (req, res) => {
+    res.send('Ödeme Başarılı');
+});
+
+app.get('/callbackFailUrl', (req, res) => {
+    res.send('Ödeme Başarısız');
+});
+
+app.get('/callback', async (req, res) => {
+    let data = {
+        status: req.body.status,
+        paymentStatus: req.body.paymentStatus,
+        hash: req.body.hash,
+        paymentAmount: req.body.paymentAmount,
+        paymentType: req.body.paymentType,
+        conversationId: req.body.conversationId,
+        orderId: req.body.orderId,
+    };
+
+    if (data.status !== 'success') return res.send('Ödeme Başarısız');
+
+    // Veritabanı işlemleri
+    res.send('ok');
+});
+
+
+app.listen(80, () => {
+    console.log('Server Started');
+});
+```
+
+
+# 🌘 Example Response Fast-Vallet 🌘
 
 ```js
 {
