@@ -161,9 +161,9 @@ app.listen(80, () => {
   valletOrderNumber: 'xxxx',
   valletOrderId: 'xxxx',
   productType: 'DIJITAL_URUN',
-  callbackOkUrl: 'https://usavizebot.com/callbackOkUrl',
-  callbackFailUrl: 'https://usavizebot.com/callbackFailUrl',
-  callback_url: 'https://usavizebot.com/dashboard/payment/vallet'
+  callbackOkUrl: 'https://localhost.com/callbackOkUrl',
+  callbackFailUrl: 'https://localhost.com/callbackFailUrl',
+  callback_url: 'https://localhost.com/dashboard/payment/vallet'
 }
 ```
 
